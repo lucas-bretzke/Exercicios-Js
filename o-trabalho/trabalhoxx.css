@@ -1,0 +1,152 @@
+nav {
+    border-radius: 10px;
+    margin-top: 0px;
+    background-color: rgb(116, 20, 20);
+}
+
+/*principal conteudo de uma NAV*/
+
+nav ul {
+    font-size: 17px;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    padding: 5px;
+}
+
+nav ul a {
+    text-decoration: none;
+    display: block;
+    padding: 1em;
+    color: white;
+    border-radius: 2px;
+}
+
+nav ul a:hover {
+    background-color: rgb(105, 105, 105);
+}
+
+a {
+    color: black;
+    cursor: pointer;
+}
+
+.conteiner-img {
+    max-width: 100%;
+    height: auto;
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    padding: 15px;
+}
+
+.conteiner-img img {
+    width: 30%;
+    border-width: 2 px;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 60px;
+    text-align: center;
+    color:rgb(0, 0, 0) ;
+}
+
+h2 {
+    font-size: 27px;
+    margin-left: 15px;
+    margin-top: 20px;
+    margin-bottom: 2px;
+}
+
+h3 { 
+    margin-top: 20px;
+    margin-bottom: 2px;
+    margin-right: 15px;
+    font-size: 27px;
+    text-align: right;
+   
+}
+
+.p1 {
+    text-indent: 15px;
+    font-size: 20px;
+    text-align: justify;
+    padding: 10px;
+    display: flex;
+}
+
+.p2 {
+    font-size: 15px;
+}
+
+body {
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-top: none;
+    background-image: url(img/HZN43063.jpg);
+}
+
+.budy {
+    display: inline-flex;
+}
+
+header {
+    background-image: url(img/sites-de-viagens.jpg);
+    justify-content: flex-start;
+    padding: 6px;
+}
+
+section {
+    display: inline-flex;
+    background-color: rgb(212, 238, 255);
+    border-radius: 15px;
+}
+
+.home1 {
+    padding-right: 700px;
+    font-size: 18px;
+}
+
+.divmain {
+    background-color: rgb(39, 109, 80);
+    border-radius: 9px;
+}
+
+img:hover {
+    cursor: pointer;
+    position: relative;
+    width: 50%;
+}
+
+aside {
+    background-color: rgb(39, 109, 80);
+    margin-left: 40px;
+    position: relative;
+}
+
+.p1-itens {
+    text-indent: 15px;
+    font-size: 20px;
+    float: left;
+    width: 700px;
+}
+
+
+h1 {
+    text-shadow: 10px 10px 10px rgb(255, 16, 16);
+}
+
+
+/*
+@media screen and (max-width: 768px) {
+    section, aside, header, nav {
+        width: 100%;
+        padding: 0px;
+    }
+}
+@media screen and (max-width: 600px) {
+    
+}

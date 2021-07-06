@@ -36,8 +36,28 @@
 
             <input type="submit" value="Search!">
         </form>
-        <script>
-            
+        <script> 
+
+{
+            // querySelectorAll -> Seleciona todos os elementos que correspondem ao seletor CSS
+            let elementos = document.querySelectorAll("ul > li:first-child")
+
+            for (let elemento of elementos) {
+                elemento.style.backgroundColor = "red"
+            }
+        }
+
+
+             /*Diga como acessar:
+        1. A <table> com o id="age-table".
+        2. Todos os elementos <label> dentro da <table> (3 elementos).
+        3. O primeiro <td> na tabela (com a palavra "Age").
+        4. O <form> com name="search". 
+        5. O primeiro <input> nesse form.
+        6. O último <input> nesse form.
+        */
+
         </script>
+   
     </body>
     </html>
