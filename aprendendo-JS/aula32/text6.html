@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ol id="elem">
+        <li>Filho 1</li>
+        <li>Filho 2</li>
+    </ol>
+    <script>
+        function removerFilhos(elem) {
+            while (elem.children.length) {
+                elem.firstElementChild.remove()
+            }
+        }
+
+        let ol = document.querySelector("#elem")
+
+        removerFilhos(ol)
+
+
+        /*
+        Exercício
+                1 - Crie uma função clear(elem) que remove todos os filhos de um elemento.
+        
+                Utilize o seguinte HTML para testar:
+                <ol id="elem">
+                    <li>Filho 1</li>
+                    <li>Filho 2</li>
+                </ol>
+        
+                2 - Insira <li>Item 2</li><li>Item 3</li> na seguinte lista:
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 4</li>
+                </ul>
+        
+                Insira os elementos na ordem correta.*/
+
+    </script>
+
+</body>
+
+</html>

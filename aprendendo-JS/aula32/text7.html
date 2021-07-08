@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .notificacao {
+            background-color: aqua;
+            color: brown;
+            padding: 10px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function mostraNotificacao(top = 10, right = 10, html = "Olá") {
+            // Criar a notificação
+            let notificao = document.createElement("div")
+
+            // Definir as coordenadas
+            notificao.style.top = top + "px"
+            notificao.style.right = right + "px"
+
+            // Incluir o HTMl
+            notificao.innerHTML = html
+
+            // Incluir um estilo
+            notificao.className = "notificacao"
+
+            // Incluir ela no HTML
+            document.body.append(notificao)
+        }
+
+        mostraNotificacao(100, 100, "<strong>Notificação</strong>")
+    </script>
+</body>
+
+</html>
