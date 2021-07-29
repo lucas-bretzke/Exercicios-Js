@@ -6,6 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+           constructor(matricula, nome, salario) {
+                // Validar a matrícula
+                if (!Number.isInteger(matricula) || matricula < 0) {
+                    throw "Matrícula inválida";
+                }   
+
+                // Validar o nome
+                if (nome.length < 4 || nome.length > 50) {
+                    throw "Nome inválido";
+                }
+
+                // Validar o salário
+                if (salario < 465) {
+                    throw "Salário inválido";
+                }
+    </script>
 </body>
 </html>

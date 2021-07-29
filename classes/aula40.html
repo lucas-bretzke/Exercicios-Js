@@ -1,54 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula-40</title>
 </head>
+
 <body>
     <script>
-/*  Exercício
-
-        Seguindo os princípios de encapsulamento crie a classe Funcionario:        
-        - Atributos: matricula, nome e salario.
+        /*  Exercício
         
-        Regras para validações dos atributos:
-        - matrícula: Deve ser um número inteiro positivo.
-        - nome: deve conter de 4 a 50 caracteres.
-        - salario: deve ser um valor não inferior a R$ 465,00.
-*/
-
-    class Pessoa {
-        #nome;
-        #idade;
-        constructor(nome, idade) {
-            this.#nome = nome;
-            this.#idade = idade;
+                Seguindo os princípios de encapsulamento crie a classe Funcionario:        
+                - Atributos: matricula, nome e salario.
+                
+                Regras para validações dos atributos:
+                - matrícula: Deve ser um número inteiro positivo.
+                - nome: deve conter de 4 a 50 caracteres.
+                - salario: deve ser um valor não inferior a R$ 465,00.
+        */
+        class Funcionario {
+            #matricula;
+            #nome;
+            #salario;
+            constructor(matricula, nome, salario) {
+                // Validar Funcionario
+                if (!Number.isInteger(matricula) || matricula < 0) {
+                    throw "Matricula invalida";
+                }
+                // Validar nome
+                if (nome.length < 4 || nome.length > 50) {
+                    throw "Nome invalido"
+                }
+                if (salario < 465) {
+                    throw "Salario invalido"
+                }
+                this.#matricula = matricula;
+                this.#mome = nome;
+                this.#salario = salario;
+            }
+            get matricula() {
+                return this.#matricula;
+            }
+            get nome() {
+                return this.#nome;
+            }
+            get salario() {
+                return this.#salario;
+            }
+            set matricula(valor) {
+                if (!Number.isInteger(matricula) || matricula < 0) {
+                    throw "Matricula invalida";
+                }
+                this.#matricula = valor;
+            }
+            set nome(valor) {
+                if (nome.lengt < 4) || nome.lengt > 50) {
+                    throw "Nome invalido";
+                }
+                this.#nome = valor;
+            }
+            set salario(valor) {
+                if (salario < 465) {
+                    throw "Salario invalido";
+                }
+                this.#salario = valor;
+            }
         }
-
-        get nome() {
-            return this.#nome;
-        }
-        get idade() {
-            return this.#idade;
-        }
-
-        set nome(valor) {
-            this.#nome = valor;
-        }
-        set idade(valor) {
-            this.#idade = valor;
-        }
-
-        modificarPessoa(nome, idade) {
-            this.#nome = nome;
-            this.#idade = idade;
-        }        
-
-    }
-
-    const pessoa = new Pessoa("asdasda", 12);
-
+        const funcionario = new Funcionario (123,"Lucas",2000);
+        
 
 
 
@@ -57,4 +77,5 @@
 
     </script>
 </body>
+
 </html>
