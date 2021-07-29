@@ -9,7 +9,7 @@
 
 <body>
     <script>
-        /*  Exercício
+        /*  Exercício 11111111111111111
         
                 Seguindo os princípios de encapsulamento crie a classe Funcionario:        
                 - Atributos: matricula, nome e salario.
@@ -18,7 +18,7 @@
                 - matrícula: Deve ser um número inteiro positivo.
                 - nome: deve conter de 4 a 50 caracteres.
                 - salario: deve ser um valor não inferior a R$ 465,00.
-        */
+        
         class Funcionario {
             #matricula;
             #nome;
@@ -36,7 +36,7 @@
                     throw "Salario invalido"
                 }
                 this.#matricula = matricula;
-                this.#mome = nome;
+                this.#nome = nome;
                 this.#salario = salario;
             }
             get matricula() {
@@ -49,26 +49,85 @@
                 return this.#salario;
             }
             set matricula(valor) {
-                if (!Number.isInteger(matricula) || matricula < 0) {
+                if (!Number.isInteger(valor) || valor < 0) {
                     throw "Matricula invalida";
                 }
                 this.#matricula = valor;
             }
             set nome(valor) {
-                if (nome.lengt < 4) || nome.lengt > 50) {
+                if (valor.length < 4 || valor.length > 50) {
                     throw "Nome invalido";
                 }
                 this.#nome = valor;
             }
             set salario(valor) {
-                if (salario < 465) {
+                if (valor < 465) {
                     throw "Salario invalido";
                 }
                 this.#salario = valor;
             }
         }
-        const funcionario = new Funcionario (123,"Lucas",2000);
+        const funcionario = new Funcionario(123,"Lucas",2000);
+        */
+        /*
+               1) Escreva a classe Aluno. Cada objeto dessa classe deve guardar os seguintes dados:
+                - matrícula,
+                - nome
+                - 2 notas de prova
+                - 1 nota de trabalho
         
+                Essa classe deve ter 2 métodos:
+                - media: calcula a média final do aluno (cada prova tem peso 3 e o trabalho tem peso 2)
+                - final: calcula quanto o aluno precisa para a prova final (retorna zero se ele não for para a final)
+          - final: calcula quanto o aluno precisa para a prova final(retorna zero se ele não for para a final)
+        */
+        /*
+        22222222222222222222222222222222222
+        class Aluno {
+            constructor(matricula, nome, prova1, prova2, trabalho) {
+                this.matricula = matricula;
+                this.nome = nome
+                this.prova1 = prova1
+                this.prova2 = prova2
+                this.trabalho = trabalho
+            }
+            media() {
+                return ((this.prova1 * 3) + (this.prova2 * 3) + (this.trabalho * 2)) / 8;
+            }
+            final() {
+                const media = this.media();
+                if (media >= 6) {
+                    console.log(`Aprovado com a média de: ${media.toFixed(2)}`)
+                } else {
+                    console.log(`Aluno reprovado com a média de: ${media.toFixed(2)}`)
+                }
+            }
+        } 
+        const aluno1 = new Aluno(333, "lucas", 5, 5, 10);
+        console.log(aluno1.media());
+*/
+class Pessoa {
+    constructor(nome,telefone) {
+        this.nome = nome;
+        this.telefone = telefone
+    }
+}
+class Agenda {
+    #listaPessoas
+    constructor () {
+        this.listaPessoas = []
+    }
+}
+armazenaPessoa (nome,telefone) {
+    if (this.#listaPessoas.length < 10) {
+        this.#listaPessoas.push(new Pessoa(nome,telefone))
+    } else {
+        console.log(`Não é possível adicionar mais pessoas na agenda!`)
+    }
+}
+removePessoa (nome) {
+    const indicePessoa = this.#listaPessoas.findIndex(pessoa >= pessoa.nome === nome);
+}
 
 
 
