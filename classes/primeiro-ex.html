@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiro Ex</title>
+</head>
+<body>
+    <script>
+           class Pessoa {
+        #nome;
+        #idade;
+        constructor(nome, idade) {
+            this.#nome = nome;
+            this.#idade = idade;
+        }
+
+        get nome() {
+            return this.#nome;
+        }
+        get idade() {
+            return this.#idade;
+        }
+
+        set nome(valor) {
+            this.#nome = valor;
+        }
+        set idade(valor) {
+            this.#idade = valor;
+        }
+
+        modificarPessoa(nome, idade) {
+            this.#nome = nome;
+            this.#idade = idade;
+        }        
+
+    }
+
+    const pessoa = new Pessoa("asdasda", 12);
+
+
+
+    </script>
+</body>
+</html>

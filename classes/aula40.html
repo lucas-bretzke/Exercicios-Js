@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula-40</title>
+</head>
+<body>
+    <script>
+/*  Exercício
+
+        Seguindo os princípios de encapsulamento crie a classe Funcionario:        
+        - Atributos: matricula, nome e salario.
+        
+        Regras para validações dos atributos:
+        - matrícula: Deve ser um número inteiro positivo.
+        - nome: deve conter de 4 a 50 caracteres.
+        - salario: deve ser um valor não inferior a R$ 465,00.
+*/
+
+    class Pessoa {
+        #nome;
+        #idade;
+        constructor(nome, idade) {
+            this.#nome = nome;
+            this.#idade = idade;
+        }
+
+        get nome() {
+            return this.#nome;
+        }
+        get idade() {
+            return this.#idade;
+        }
+
+        set nome(valor) {
+            this.#nome = valor;
+        }
+        set idade(valor) {
+            this.#idade = valor;
+        }
+
+        modificarPessoa(nome, idade) {
+            this.#nome = nome;
+            this.#idade = idade;
+        }        
+
+    }
+
+    const pessoa = new Pessoa("asdasda", 12);
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
