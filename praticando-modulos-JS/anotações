@@ -1,12 +1,13 @@
+//"sempre estar dentro da pasta" acho que sempre kkk
+
+
 //npm executa ações fora da biblioteca
 //npx executa ações dentro
 
 
-
-
-
 npm init -y // para iniciar
 npm install cowsay // para instalar a bibliotéca
+npm install // instala oque não vai pro git-hub
 
 Semantic Versioning using npm // site do node
 npx cowsay -h // mostra as opçôes de comandos da bibliotéca
