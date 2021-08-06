@@ -1,0 +1,32 @@
+await // sempre vai antes de uma  fsPromises
+appendFile // Vai adcionando conteudo
+path.resolve  // ussa Sempre que tiver um caminho 
+(async () => {} // Carrega varias coisas ao mesmo tempo
+
+${EOL}  // Sempre no começo ou final
+const novoConteudo = EOL + "Outra linha foi adcionada";
+mikdir
+
+
+(async () => {
+    const conteudo = `Este texto foi criado atravez de um arquivo node ${EOL} Essa é`
+    }
+
+try {
+    awai fsPromises.writeFile(path.resolve(_dirname, "teste2.txt"), conteudo)
+        console.log("O arquivo teste2.txt foi criado com suceso!")
+} catch (error) {
+        console.log ("Ocorreu um erro")}
+
+
+
+appendFile // Vai adcionando conteudo
+await fsPromises.appendFile(path.resolove******************)
+console.log ("Novo conteudo adcionando")
+
+
+biblioteca MV npm // move as pastas
+
+Quando você usa o require e na variável é colocado as chaves, você só irá conseguir usar o que foi passado nas chaves.
+Ex: const { EOL } = require("os")    // Isso é para pegar o tipo de quebra de linha do sistema operacional (Windows: \r\n; Linux: \n)
++
