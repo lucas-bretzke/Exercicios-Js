@@ -1,4 +1,0 @@
-Esse texto foi criado através de um arquivo no node
-Essa é uma nova linha
-Uma nova linha foi adicionada :D
-Outra linha foi adicionada :)
