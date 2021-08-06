@@ -12,7 +12,7 @@ mikdir
     const conteudo = `Este texto foi criado atravez de um arquivo node ${EOL} Essa é`
     }
 
-try {
+try {.
     awai fsPromises.writeFile(path.resolve(_dirname, "teste2.txt"), conteudo)
         console.log("O arquivo teste2.txt foi criado com suceso!")
 } catch (error) {
