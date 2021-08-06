@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sintaxe de Classes</title>
+</head>
+<body>
+    <script>
+        class MinhaClasse {
+            // métodos da classe
+            constructor() {}
+            metodo1() {}
+            metodo2() {}
+            metodo3() {}            
+        }
+
+        // Exemplo - Usuario
+        class Usuario {
+            idade = 20 // Atributo de classe -> Todas as instâncias terão esse atributo
+
+            constructor(nome, sobrenome) { // Método constructor -> Será chamado quando criarmos uma instância da classe
+                this.nome = nome // Atributo do objeto
+                this.sobrenome = sobrenome // Atributo do objeto
+            }
+
+            dizOi() { // Método
+                alert(`Olá o meu nome é: ${this.nome}`)
+            }
+        }
+
+        // Para instanciar um usuário (Criar um objeto do tipo Usuario)
+        let usuario1 = new Usuario("William", "Círico"),
+            usuario2 = new Usuario("Pedro", "da Silva")
+        usuario1.dizOi()
+        usuario2.dizOi()      
+        
+        /*
+        Exercícios
+
+        1) Escreva a classe Aluno. Cada objeto dessa classe deve guardar os seguintes dados:
+        - matrícula,
+        - nome
+        - 2 notas de prova
+        - 1 nota de trabalho
+
+        Essa classe deve ter 2 métodos:
+        - media: calcula a média final do aluno (cada prova tem peso 3 e o trabalho tem peso 2)
+        - final: calcula quanto o aluno precisa para a prova final (retorna zero se ele não for para a final)
+
+        Resposta:
+        class Aluno {
+            constructor(matricula, nome, prova1, prova2, trabalho) {
+                this.matricula = matricula;
+                this.nome = nome;
+                this.prova1 = prova1;
+                this.prova2 = prova2;
+                this.trabalho = trabalho;
+            }
+
+            media() {                
+                return ((this.prova1 * 3) + (this.prova2 * 3) + (this.trabalho * 2)) / 8;
+            }
+
+            final() {
+                const media = this.media();
+
+                if (media >= 6) {
+                    console.log(`O aluno foi aprovado com a média ${media.toFixed(2)}`);
+                } else {
+                    console.log(`O aluno foi reprovao com a média ${media.toFixed(2)}`);
+                }
+            }
+        }
+
+        const aluno1 = new Aluno(123, "João", 5, 10, 10);
+        console.log(aluno1.media());
+        aluno1.final();
+        
+
+        2) Crie uma classe Agenda que pode armazenar 10 pessoas e que seja capaz de realizar as 
+        seguintes operações:
+        - armazenaPessoa(nome, telefone)
+        - removePessoa(nome)
+        - buscaPessoa(nome) -> Informa o número de telefone da pessoa
+        - imprimeAgenda() -> Imprime os dados de todas as pessoas da agenda
+        - imprimePessoa(indice) -> Imprime os dados da pessoa que está na posição "i" da agenda
+
+        // Resolução:
+        class Pessoa {
+            constructor(nome, telefone) {
+                this.nome = nome;
+                this.telefone = telefone;
+            }
+        }
+
+        class Agenda {
+            #listaPessoas      
+
+            constructor() {
+                this.#listaPessoas = []
+            }
+
+            armazenaPessoa(nome, telefone) {
+                if (this.#listaPessoas.length < 10) {
+                    this.#listaPessoas.push(new Pessoa(nome, telefone));
+                } else {
+                    console.log("Não é possível adicionar mais pessoas na agenda!");
+                }                
+            }
+
+            removePessoa(nome) {
+                const indicePessoa = this.#listaPessoas.findIndex(pessoa => pessoa.nome === nome);
+                
+                if (indicePessoa >= 0) {
+                    this.#listaPessoas.splice(indicePessoa, 1);
+                    return console.log("A pessoa foi removida da agenda");
+                }
+
+                return console.log("A pessoa não está cadastrada");
+            }
+
+            buscaPessoa(nome) {
+                const pessoa = this.#listaPessoas.find(pessoa => pessoa.nome === nome);
+
+                if (pessoa) {
+                    return console.log(`O número de telefone do/da ${nome} ${pessoa.telefone}`);
+                }
+
+                return console.log("A pessoa não está cadastrada");
+            }
+
+            imprimeAgenda() {
+                if (!this.#listaPessoas.length) {
+                    return console.log("Não existe nenhuma pessoa cadastrada!");
+                }
+
+                for (let pessoa of this.#listaPessoas) {
+                    console.log(`Nome: ${pessoa.nome} | Telefone: ${pessoa.telefone}`);
+                }
+            }
+
+            imprimePessoa(indice) {
+                if (this.#listaPessoas[indice]) {
+                    const pessoa = this.#listaPessoas[indice];
+                    return console.log(`Nome: ${pessoa.nome} | Telefone: ${pessoa.telefone}`);
+                }
+
+                return console.log("Não existe nenhuma pessoa cadastrada nesse índice");
+            }
+        }   
+
+        const agenda = new Agenda();
+        agenda.armazenaPessoa("João", "(47) 9 9999-9999");
+        agenda.armazenaPessoa("Pedro", "(47) 9 9999-9992");        
+        
+        // agenda.removePessoa("João");
+        // agenda.buscaPessoa("Marcos");
+        // agenda.imprimeAgenda();
+        // agenda.imprimePessoa(2);
+        console.log(agenda);
+
+        3) Escreva um classe Voo. Cada vôo possui no máximo 100 passageiros, e a classe permite controlar a 
+        ocupação das vagas. A classe deve ter os seguintes métodos:
+
+        - constructor: número do vôo, data
+        - proximoLivre: retorna o número da próxima cadeira livre
+        - verifica: verifica se o número da cadeira recebido como parâmetro está ocupada
+        - ocupa: ocupa determinada cadeira do vôo, cujo número é recebido como parâmetro,
+        retorna verdadeiro se a cadeira ainda não estiver ocupada e falso caso contrário.
+        - vagas: retorna o número de cadeiras vagas (não ocupadas) disponíveis no vôo.
+        - getVoo: retorna o número do vôo
+
+        class Voo {
+            #numeroVoo;
+            #cadeirasDisponiveis;
+
+            constructor(numeroVoo, data) {
+                this.#numeroVoo = numeroVoo;
+                this.data = data;
+                this.#cadeirasDisponiveis = Array.from(Array(100).keys());
+            }
+
+            get numeroVoo() {
+                return this.#numeroVoo;
+            }
+
+            proximoLivre() {
+                return this.#cadeirasDisponiveis[0];
+            }
+
+            verifica(numeroCadeira) {
+                if (numeroCadeira < 0 || numeroCadeira > 99) {
+                    return "Número da cadeira é inválido";
+                }
+
+                const cadeira = this.#cadeirasDisponiveis.find(cadeira => cadeira === numeroCadeira);
+
+                if (cadeira >= 0) {
+                    return "Cadeira está disponível";
+                }
+
+                return "Cadeira está indisponível";
+            }
+
+            ocupa(numeroCadeira) {
+                if (numeroCadeira < 0 || numeroCadeira > 99) {
+                    return "Número da cadeira é inválido";
+                }
+
+                this.#cadeirasDisponiveis = this.#cadeirasDisponiveis.filter(cadeira => cadeira !== numeroCadeira);
+                return "Cadeira ocupada";
+            }
+
+            vagas() {
+                return this.#cadeirasDisponiveis.length;
+            }
+            
+        }
+
+        const voo = new Voo(123, new Date());
+        
+        console.log(voo.verifica(0));
+        console.log(voo.ocupa(0));        
+        console.log(voo.proximoLivre());
+        console.log(voo.verifica(0));
+        console.log(voo.vagas());
+        */
+
+    </script>
+</body>
+</html>

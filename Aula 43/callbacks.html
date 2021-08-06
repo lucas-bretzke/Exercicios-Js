@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callbacks</title>
+</head>
+<body>
+    <script>
+        /* 
+        Uma função callback é um tipo de função que só é executada após o processamento
+        de outra função. Para isso acontecer, essa função é passada como parâmetro para
+        outra  função.  Elas  são  utilizadas  para  controlar o fluxo de processamento 
+        assíncrono.
+
+        Código síncrono: Aguarda a conclusão de cada operação, somente depois executa a 
+        próxima operação.
+
+        Código Assíncrono: Não espera a conclusão das operações. O resultado de cada 
+        operação será tratato assim que estiver disponível.
+
+        Ex.:    
+        console.log("Primeiro")
+        
+        setTimeout(() => {
+            console.log("Segundo")
+        }, 1000)
+
+        console.log("Terceiro")
+        */
+
+        // Função callback em um código síncrono:
+        // function cumprimentar(nome) {
+        //     alert(`Olá ${nome}`)
+        // }
+
+        // function processaInputUsuario(callback) {
+        //     let nome = prompt("Digite seu nome")
+        //     callback(nome)
+        // }
+
+        // processaInputUsuario(cumprimentar)
+
+        // Função callback em um código assíncrono
+        // setTimeout(() => cumprimentar("Pedro"), 2000) // Depois de 2 segundos irá executar a função callback cumprimentar
+        // console.log("Estou executando antes do retorno da função")
+
+
+        // Exemplo de callback para carregar scripts
+        // function loadScript(src, callback) {
+        //     const script = document.createElement("script")
+        //     script.src = src
+
+        //     // Após o script carregar irá chamar a função callback passando como parâmetro o script criado
+        //     script.onload = () => callback(script)
+
+        //     document.head.append(script)
+        // }
+
+        // // // Chamando a função
+        // loadScript("./callbacks.js", (script) => {
+        //     console.log(`O script ${script.src} foi carregado`)
+        //     // Chamando a função dizOi que está dentro do script
+        //     dizOi()
+        // })
+
+        // Acrescentando tratamento de erros
+        function loadScript(src, callback) {
+            const script = document.createElement("script")
+            script.src = src
+            
+            script.onload = () => callback(null, script)
+            script.onerror = () => callback(new Error(`Falha ao carregar o script ${src}`))
+
+            document.head.append(script)
+        }
+
+        loadScript("./callbacks.js", (error, script) => {
+            // error-first-callback
+            if (error) {
+                console.log(error.message)
+            } else {
+                console.log(`O script ${script.src} foi carregado`)            
+                dizOi()
+            }
+        })
+
+        /*
+        Exercícios
+    
+        1) Crie uma função somar(n1, n2, cb) que some dois números após 2 segundos, se o resultado for par irá chamar
+        a callback passando o resultado calculado, caso seja ímpar irá chamar a callback passando um erro com a mensagem "O valor é ímpar".
+
+        callback(error, result) => Se um erro for passado irá mostrar a mensagem: "A operação falhou! [mensagem do erro]".
+        Senão, irá mostrar a mensagem: "A operação foi bem sucedida! O número [result] é par".
+
+        class OddNumberError extends Error {
+            constructor(message) {
+                super(message);
+                this.name = "OddNumberError";
+            }
+        }
+        
+        function somar(n1, n2, cb) {
+            setTimeout(() => {
+                const resultado = n1 + n2;
+
+                if (resultado % 2 !== 0) {
+                    cb(new OddNumberError("O valor é ímpar"));
+                } else {
+                    cb(null, resultado);
+                }
+            }, 2000);
+        }
+
+        somar(2, 3, (error, resultado) => {
+            if (error) {
+                console.log(`A operação falhou! ${error.message}`);
+            } else {
+                console.log(`A operação foi bem sucedida! O número ${resultado} é par`);
+            }
+        });
+
+        2) Crie uma função dobrarEm5Segundos(numero, cb) que dobre o valor de um número após 5 segundos. Se o valor recebido não for um número
+        ele irá chamar a cb passando um erro. 
+
+        callback(error, result) => Se um erro for passado irá mostrar a mensagem: "A operação falhou! [mensagem do erro]".
+        Senão, irá mostrar a mensagem: "A operação foi bem sucedida! O resultado é [result]".
+
+        function dobrarEm5Segundos(numero, cb) {
+            setTimeout(() => {
+                if (isNaN(numero)) {
+                    cb(new TypeError("O valor precisa ser numérico"));
+                } else {
+                    const dobro = numero * 2;
+                    cb(null, dobro);
+                }
+            }, 5000);
+        }
+
+        dobrarEm5Segundos("a", (error, resultado) => {
+            if (error) {
+                console.log(`A operação falhou! ${error.message}.`);
+            } else {
+                console.log(`A operação foi bem sucedida! O resultado é ${resultado}.`);
+            }
+        });
+
+        3) Crie uma função obtemUsuarioPeloNome(nome, cb) quee verifica após 3 segundos se o nome faz parte do vetor:
+        [
+            {
+                nome: "João",
+                idade: 25,
+                email: "joao@email.com"
+            },
+            {
+                nome: "Pedro",
+                idade: 33,
+                email: "pedro@email.com"
+            },
+            {
+                nome: "Marcos",
+                idade: 16,
+                email: "marcos@email.com"
+            }
+        ]
+        
+        Se o nome informado não estiver no vetor a função deverá chamar a callback passando um UserNotFoundError com a mensagem "Usuário não está cadastrado".
+        Caso o nome informado esteja cadastrado na lista a callback deve ser chamada passando as informações do usuário com aquele nome.
+
+        cb(error) -> Ocorreu um erro! [mensagem do erro]
+        cb(success) -> Usuário encontrado: 
+                       nome: [nome do usuário]
+                       idade: [idade do usuário]
+                       email: [email do usuário]
+        
+        const listaPessoas = [
+            {
+                nome: "João",
+                idade: 25,
+                email: "joao@email.com"
+            },
+            {
+                nome: "Pedro",
+                idade: 33,
+                email: "pedro@email.com"
+            },
+            {
+                nome: "Marcos",
+                idade: 16,
+                email: "marcos@email.com"
+            }
+        ];
+
+        class UserNotFoundError extends Error {
+            constructor(message) {
+                super(message);
+                this.name = "UserNotFoundError";
+            }
+        }
+
+        function obtemUsuarioPeloNome(nome, cb) {
+            setTimeout(() => {
+                const usuario = listaPessoas.find(pessoa => pessoa.nome === nome);
+
+                if (!usuario) {
+                    cb(new UserNotFoundError("Usuário não está cadastrado"));
+                } else {
+                    cb(null, usuario);
+                }
+            }, 3000);            
+        }
+
+        obtemUsuarioPeloNome("Pedro", (error, pessoa) => {
+            if (error) {
+                console.log(`Ocorreu um erro! ${error.message}.`);
+            } else {
+                console.log(`Usuário encontrado:\nnome: ${pessoa.nome}\nidade: ${pessoa.idade}\nemail: ${pessoa.email}.`);
+            }
+        });
+        */
+    </script>
+</body>
+</html>
