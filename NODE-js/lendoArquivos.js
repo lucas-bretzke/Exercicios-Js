@@ -45,6 +45,7 @@ const { EOL } = require("os");
 // })();
 
 // Ex: 3
+/*
 (async () => {
     try {
         const chalk = require('chalk'),
@@ -60,3 +61,4 @@ const { EOL } = require("os");
         console.log(err.message);
     }
 })();
+*/

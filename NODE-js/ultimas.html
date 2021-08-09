@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimas correções do ler dados, e etc</title>
+</head>
+
+<body>
+    <script>
+        const isValid = ("cpf")
+        const path = require("path")
+        const { EOL } = require("os")
+        const fsp = require("fs/promises")
+        sync() => {
+            const cpf = (await fsp.readFile(path.resolve("cpg.txt")))
+
+            const cpfsValidos = [],
+                cpfsInvalidos = [];
+            for (let cpfs of cpfs) {
+isValid(cpf) ? cpsValidos.push(cpf) : cpfsValidos.push(cpf)
+            }
+            await fsp.writeFile(path.resolve("Valido"))
+        }
+
+
+    </script>
+
+</body>
+
+</html>

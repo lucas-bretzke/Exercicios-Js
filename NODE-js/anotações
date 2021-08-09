@@ -1,4 +1,4 @@
-await // sempre vai antes de uma  fsPromises
+await // sempre vai antes de uma  fsPromises ou catch
 appendFile // Vai adcionando conteudo
 path.resolve  // ussa Sempre que tiver um caminho 
 (async () => {} // Carrega varias coisas ao mesmo tempo
