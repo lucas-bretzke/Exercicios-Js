@@ -138,6 +138,51 @@ aside {
 h1 {
     text-shadow: 10px 10px 10px rgb(221, 221, 221);
 }
+@media screen and (max-width: 400px){
+    body {
+        padding: 0%;
+        margin: 0%;
+      
+    }
+    #logo {
+        width: 100%;
+    }
+    header {
+       width: 100%;
+    }
+    nav {
+width: 100%;
+position: fixed;
+
+border-radius: 0ch;
+    }
+    ul {
+        padding: 0;
+    }
+    a {
+       padding: 0px;
+       text-align: left;
+    }
+    .home1 {
+        padding: 0ch;
+    }
+    .divmain {
+        margin-top: 13%;
+        border-radius: 0ch;
+    }
+    section#espaco {
+       margin: 0;
+       padding:0;
+       border: none;
+    }
+    #alinhamento {
+        text-align: justify;
+    }
+ #sembordas {
+    padding: 0ch;
+        
+    }
+}
 
 
 /*
