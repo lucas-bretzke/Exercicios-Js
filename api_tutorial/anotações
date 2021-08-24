@@ -1,2 +1,6 @@
 npm init -y
 npm i express / para instalar 
+npm i -D nodemon
+  npm run dev......   "dev": "nodemon index.js"   / pra não precisar ficando dando ctrl C no TERMINAL 
+
+  
