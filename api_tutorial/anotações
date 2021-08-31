@@ -3,4 +3,15 @@ npm i express / para instalar
 npm i -D nodemon
   npm run dev......   "dev": "nodemon index.js"   / pra não precisar ficando dando ctrl C no TERMINAL 
 
-  
+
+
+
+  // Rotas de usuário
+GET ht´p://localhost:3000/users/idUsers/posts
+POST http://localhost:3000/users/657856545696546/posts
+
+// Rotas de posts
+GET http://localhost:3000/posts
+GET http://localhost:3000/posts/odPost
+DELET http://localhot:3000/posts/idPost
+PUT http://localhost:3000/posts/idPost
