@@ -15,3 +15,11 @@ GET http://localhost:3000/posts
 GET http://localhost:3000/posts/odPost
 DELET http://localhot:3000/posts/idPost
 PUT http://localhost:3000/posts/idPost
+
+// links para ler MUITO IMPORTANTE
+
+https://sequelize.org/master/manual/validations-and-constraints.html
+https://sequelize.org/master/manual/assocs.html
+https://sequelize.org/master/manual/migrations.html
+https://sequelize.org/master/manual/model-querying-basics.html
+https://sequelize.org/master/manual/model-querying-finders.html
