@@ -1,0 +1,27 @@
+body {
+background-color: rgb(117, 136, 221);
+margin: 20px;
+}
+
+header {
+    color: aliceblue;
+    text-align: center;
+}
+
+section {
+    background-color: white;
+    padding: 10px;
+    margin: auto;
+    width: 500px;
+    border-radius: 10;
+    align-items: center;
+    box-shadow: 3px 3px 10px rgb(49, 49, 49)
+}
+
+footer {
+    text-align: center;
+    color: white;
+    font-style: italic;
+    font-size: 17px;
+}
+
