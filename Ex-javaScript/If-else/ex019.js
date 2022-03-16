@@ -1,6 +1,6 @@
 let p1 = 2
 let p2 = 3
-let p3 = 1
+let p3 = 10
 
 if (p2 > p3 && p1 > p3) {
     console.log(`O de ${p3}`)

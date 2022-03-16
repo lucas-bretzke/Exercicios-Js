@@ -1,5 +1,5 @@
 let timea = 2
-let timeb = 2
+let timeb = 1
 
 
 if (timea > timeb) {

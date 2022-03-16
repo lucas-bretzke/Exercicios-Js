@@ -1,0 +1,122 @@
+/* Paleta de cores
+    Bordo rgb(122, 0, 0)
+    Marinho  #038bbb
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Mulish', sans-serif; */
+}
+
+.center {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 2%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.logo {
+    width:auto;
+    text-align: left;
+    padding: 20px;
+}
+
+.logo a{
+    font-weight: normal;
+    font-size: 24px;
+    text-decoration :none;
+    color:  #038bbb;
+}
+
+
+.menu {
+    width: 80%;
+    text-align: right;
+    padding: 20px 20px 0px 0px;
+}
+
+.menu a {
+    margin-right: 30px;
+    text-decoration: none;
+    font-size: 18px;
+    color:  #1950c5; 
+}
+
+.menu a:hover {
+    color: #038bbb;
+    transition : 0.4s
+}
+
+.menu .btn-menu {
+    padding: 5px 10px;
+    border-radius: 7px;
+    background-color:rgb(122, 0, 0);
+    color: white;
+}
+
+.menu .btn-menu:hover{
+    background-color:#038bbb;
+    color: white;
+}
+
+
+
+section.main {
+    background-image: url('../img/overlay.png') ,
+    linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+    padding: 70px;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.main_cta {
+    width: 100%;
+    text-align: center;
+    text-align: center;
+    margin: 60px 0px;
+}
+.main_cta h2 {
+    font-size: 40px;
+    color: #038bbb;
+}
+
+.main_cta p {
+    font-size: 19px ;
+    margin: 10px 0px;
+}
+.main_cta button {
+    background-color: #038bbb;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+
+
+.diferenciais {
+    display: flex;
+}
+
+.diferenciais-single {
+    margin: 10px;
+    background-color: white;
+    padding: 10px ;
+    border-radius: 10px;
+}
+
+.diferenciais-single h2 {
+    margin: 10px;
+    color:#038bbb;
+}
+
+.diferenciais-single p {
+    line-height: 30px;
+    
+}
